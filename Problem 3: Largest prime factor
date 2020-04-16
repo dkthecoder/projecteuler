@@ -1,0 +1,26 @@
+import java.util.*;
+import java.math.*;
+
+/*
+The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143 ?
+*/
+
+class Problemthree {
+    public static void main(String[] args) {
+        // declare variables with prime to be found
+        long findPrime = 600851475143L;
+        //counter of prime number
+        int i = 0;
+        
+        //i is our prime to be found. IF its a prime of our input its stored until i is equal to our prime number.
+        for (i = 2; i <= findPrime; i++) {
+            if (findPrime % i == 0) {
+                findPrime /= i;
+                //if i isnt a prime we keep it at tis same value, otherwise the for-loop keeps going
+                i--;
+            }
+        }
+        System.out.println("Biggest Prime: " + i);
+    }
+}
