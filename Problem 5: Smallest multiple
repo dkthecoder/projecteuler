@@ -1,0 +1,36 @@
+import java.util.*;
+import java.math.*;
+
+/*
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+*/
+
+class ProblemFiv{
+    public static void main(String args[]) {
+
+        int n = 20;
+        long result = lcm(n); 
+
+        System.out.println("Result: " + result);
+    }
+
+    private static long lcm(long n){ 
+        long temp = 1;     
+        for (int i = 1; i <= n; i++){
+            temp = (temp * i)/(gcd(temp, i));
+            System.out.println("i is " + i + " while temp is: " + temp); 
+        }
+        return temp;
+    }
+
+    private static long gcd(long a, long b){ 
+       if(a%b != 0){
+           return gcd(b,a%b); 
+        }
+        else{
+            return b;
+        }
+    } 
+}
+
